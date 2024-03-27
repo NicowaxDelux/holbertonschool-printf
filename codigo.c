@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <stdarg.h>
 
-void _string(va_list args)
+void _string(va_list navegar)
 {
 	char *str;
 
-	str = va_arg(args, char *);
+	str = va_arg(navegar, char *);
 
 	while (*str != '\0')
 	{

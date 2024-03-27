@@ -7,7 +7,7 @@
  * @args: the string.
  */
 
-void _string(va_list args)
+int _string(va_list args)
 {
 	char *str;
 	int cant = 0;

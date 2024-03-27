@@ -1,6 +1,20 @@
 #include <stdio.h>
 #include <stdarg.h>
 
+void _string(va_list args)
+{
+	char *str;
+
+	str = va_arg(args, char *);
+
+	while (*str != '\0')
+	{
+		putchar(*str);
+		str++;
+	}
+}
+
+
 int _printf(const char *format, ...)
 {
 	while (*format)
@@ -9,9 +23,8 @@ int _printf(const char *format, ...)
 
 		va_start(navegar, format);
 
-		for (; *string != '\0'; string++)
-		{
-			putchar(*string);
-		}
+		switch
+
+
 	}
 }

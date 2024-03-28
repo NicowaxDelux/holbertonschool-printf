@@ -36,8 +36,7 @@ int _printf(const char *format, ...)
 			{
 				if (format[i + 1] == types[j].type[1])
 				{
-					types[j].f(ap);
-					len++;
+					len = len + types[j].f(ap);
 					break;
 				}
 				j++;

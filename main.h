@@ -7,12 +7,12 @@
 
 typedef struct {
     const char *type;
-    void (*f)(va_list);
+    int (*f)(va_list);
 } convert;
 
-void print_char(va_list args);
+int print_char(va_list args);
 int _putchar(char c);
-int _string(va_list args);
+int print_string(va_list args);
 int _printf(const char *format, ...);
 
 

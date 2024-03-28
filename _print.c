@@ -13,7 +13,7 @@ int _printf(const char *format, ...)
 {
 	convert types[] = {
 		{"%c", print_char},
-		{"%s", print_char},
+		{"%s", print_string},
 		{NULL, NULL}
 	};
 

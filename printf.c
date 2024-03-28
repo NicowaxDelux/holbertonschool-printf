@@ -10,31 +10,47 @@
   */
 int _printf(const char *format, ...)
 {
-	Convert types[] = {
-		{"%c",print_char}
+	convert types[] = {
+		{"%c", print_char},{"%s", print_string},
+		{"%%", print_percent},
+		{"%d", print_int},{"%i", print_int},
+		{NULL, NULL}
 	};
 
 	va_list ap;
-
-	int i = 0, j = 0 ;
+	int i = 0, j = 0;
+	int len = 0;
 
 	va_start(ap, format);
 
-	if(format == NULL || (format[0] == '%' && format[1] == '\0'))
-
+	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
 
 	while (format[i] != '\0')
 	{
-		while ()
+		if (format[i] == '%')
 		{
-
+			j = 0;
+			while (types[j].type)
+			{
+				if (format[i + 1] == types[j].type[1])
+				{
+					types[j].f(ap);
+					len++;
+					break;
+				}
+				j++;
+			}
+			i++;
 		}
-
-		j = 0;
+		else
+		{
+			_putchar(format[i]);
+			len++;
+		}
 		i++;
-
 	}
-	_putchar('\n');
-	va_end(ap)
+	va_end(ap);
+
+	return (len);
 }

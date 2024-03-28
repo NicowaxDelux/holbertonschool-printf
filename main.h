@@ -8,14 +8,16 @@
 
 typedef struct print_convert
 {
-	char *type;
-	void (*f)();
+	const char *type;
+	int (*f)();
 
-} Convert ;
+} convert ;
 
 int _putchar(char c);
 int _printf(const char *format, ...);
 
-int print_char(va_list character);
-
+int print_char(va_list args);
+int print_string(va_list args);
+int print_percent(void);
+int print_int(va_list args);
 #endif

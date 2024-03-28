@@ -14,12 +14,13 @@ int _printf(const char *format, ...)
 	convert types[] = {
 		{"%c", print_char},
 		{"%s", print_string},
+		{"%d", print_int},
 		{NULL, NULL}
 	};
 
 	va_list ap;
 	int i = 0, j = 0;
-	int chars_printed = 0;
+	int len2 = 0;
 
 	va_start(ap, format);
 
@@ -33,7 +34,7 @@ int _printf(const char *format, ...)
 				if (format[i + 1] == types[j].type[1])
 				{
 					types[j].f(ap);
-					chars_printed++;
+					len2++;
 					break;
 				}
 				j++;
@@ -43,13 +44,13 @@ int _printf(const char *format, ...)
 		else
 		{
 			_putchar(format[i]);
-			chars_printed++;
+			len2++;
 		}
 		i++;
 	}
 	va_end(ap);
 
-	return (chars_printed);
+	return (len2);
 }
 
 int main(void)

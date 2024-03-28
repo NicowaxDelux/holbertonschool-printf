@@ -5,7 +5,7 @@
   *
   *@format: argument to print
   *
-  *Return: 
+  *Return: print convert 
   *
   */
 int _printf(const char *format, ...)
@@ -14,6 +14,7 @@ int _printf(const char *format, ...)
 		{"%c", print_char},{"%s", print_string},
 		{"%%", print_percent},
 		{"%d", print_int},{"%i", print_int},
+		{"%b", print_bin},
 		{NULL, NULL}
 	};
 
@@ -23,7 +24,7 @@ int _printf(const char *format, ...)
 
 	va_start(ap, format);
 
-	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+	if(format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
 
 	while (format[i] != '\0')

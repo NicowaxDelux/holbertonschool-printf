@@ -9,11 +9,9 @@
   *
   *Return: 1
   */
-int print_char(va_list character)
+int print_char(va_list args)
 {
-	char c;
-
-	c = va_arg(character, int);
+	char c = va_arg(args, int);
 
 	_putchar(c);
 

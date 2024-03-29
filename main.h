@@ -22,6 +22,7 @@ typedef struct print_convert
 
 int _putchar(char c);
 int _printf(const char *format, ...);
+int print_unknown(const char *format, int i);
 
 int print_char(va_list args);
 int print_string(va_list args);

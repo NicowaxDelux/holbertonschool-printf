@@ -3,8 +3,9 @@
 #include <stdarg.h>
 
 /**
- * _string - print pf the string.
+ * print_string - print pf the string.
  * @args: the string.
+ * Return: return string
  */
 
 int print_string(va_list args)

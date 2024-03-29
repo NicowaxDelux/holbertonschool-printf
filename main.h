@@ -5,13 +5,19 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+/**
+ * struct print_convert - match the conversion specifiers for printf
+ * @type: type char pointer of the specifier i.e (l, h) for (d, i, u, o, x, X)
+ * @f: type pointer to function for the conversion specifier
+ *
+ */
 
 typedef struct print_convert
 {
 	const char *type;
 	int (*f)();
 
-} convert ;
+} convert;
 
 int _putchar(char c);
 int _printf(const char *format, ...);

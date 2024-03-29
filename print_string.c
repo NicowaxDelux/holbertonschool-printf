@@ -13,7 +13,7 @@ int print_string(va_list args)
 	char *str = va_arg(args, char *);
 	int cant = 0;
 
-	if(str == NULL)
+	if (str == NULL)
 	{
 		str = "(null)";
 		while (str[cant])

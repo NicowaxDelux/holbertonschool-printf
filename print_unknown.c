@@ -9,7 +9,7 @@
  */
 int print_unknown(const char *format, int i)
 {
-    _putchar(format[i]);
-    _putchar(format[i + 1]);
-    return (2);
+	_putchar(format[i]);
+	_putchar(format[i + 1]);
+	return (2);
 }

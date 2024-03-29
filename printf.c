@@ -36,7 +36,7 @@ int _printf(const char *format, ...)
 				}
 				j++;
 			}
-			if(types[j].type == NULL)
+			if (types[j].type == NULL)
 				len += print_unknown(format, i);
 
 			i++;

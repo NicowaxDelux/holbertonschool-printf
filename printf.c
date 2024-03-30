@@ -19,7 +19,6 @@ int _printf(const char *format, ...)
 	int i = 0, j = 0, len = 0;
 
 	va_start(ap, format);
-
 	while (format[i] != '\0')
 	{
 		if (format[i] == '%' && format[i + 1] != '\0')
@@ -35,7 +34,11 @@ int _printf(const char *format, ...)
 				j++;
 			}
 			if (types[j].type == NULL && format[i + 1] != '\0')
-				len += print_unknown(format, i);
+			{
+				_putchar('%');
+				_putchar(format[i + 1]);
+				len++;
+			}
 			i++;
 		} else
 		{

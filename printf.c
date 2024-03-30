@@ -12,23 +12,19 @@ int _printf(const char *format, ...)
 {
 	convert types[] = {
 		{"%c", print_char}, {"%s", print_string}, {"%%", print_percent},
-		{"%d", print_int}, {"%i", print_int}, {"%b", print_bin}
+		{"%d", print_int}, {"%i", print_int}, {"%b", print_bin},
+		{NULL, NULL}
 	};
 	va_list ap;
 	int i = 0, j = 0, len = 0;
 
 	va_start(ap, format);
+
 	while (format[i] != '\0')
 	{
 		if (format[i] == '%' && format[i + 1] != '\0')
 		{
-			if (format[i + 1] == '%')
-			{
-				_putchar('%');
-				len++;
-				i += 2;
-				continue;
-			}
+			j = 0;
 			while (types[j].type)
 			{
 				if (format[i + 1] == types[j].type[1])

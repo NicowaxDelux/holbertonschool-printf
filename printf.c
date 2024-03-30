@@ -20,11 +20,7 @@ int _printf(const char *format, ...)
 	int i = 0, j = 0, len = 0;
 
 	va_start(ap, format);
-	if (format[i] == '%' && format[i + 1] == '\0')
-	{
-		_putchar('%');
-		len++;
-	}
+
 	while (format[i] != '\0')
 	{
 		if (format[i] == '%' && format[i + 1] != '\0')

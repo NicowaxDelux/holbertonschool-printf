@@ -1,6 +1,7 @@
 #include <stdarg.h>
 #include <stdio.h>
 #include "main.h"
+#include <limits.h>
 
 /**
  * print_int - print a int.
@@ -12,11 +13,9 @@
 int print_int(va_list args)
 {
 	int n = va_arg(args, int);
-	int len3 = 0;
-	int temp = n;
+	int len3 = 0, temp = n;
 	int digits[12];
-	int i = 0;
-	int j;
+	int i = 0, j;
 
 	if (n == 0)
 	{
@@ -39,13 +38,17 @@ int print_int(va_list args)
 		digits[i++] = n % 10;
 		n /= 10;
 	}
-	while (n != 0)
+
+	if (n == INT_MIN)
 	{
-		_putchar('-');
-		digits[i++] = n % 10;
-		n /= 10;
-		len3++;
+		char int_min_str[] = "-2147483648";
+		for (j = 0; int_min_str[j] != '\0'; j++)
+        	{
+			_putchar(int_min_str[j]);
+		}
+		return 11;
 	}
+
 	for (j = i - 1; j >= 0; j--)
 	{
 		_putchar(digits[j] + '0');

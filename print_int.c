@@ -13,10 +13,19 @@
 int print_int(va_list args)
 {
 	int n = va_arg(args, int);
-	int len3 = 0, temp = n;
-	int digits[12];
+	int len3 = 0, temp = n, digits[12];
 	int i = 0, j;
 
+	if (n == INT_MIN)
+	{
+		char int_min_str[] = "-2147483648";
+
+		for (j = 0; int_min_str[j] != '\0'; j++)
+		{
+			_putchar(int_min_str[j]);
+		}
+		return (11);
+	}
 	if (n == 0)
 	{
 		_putchar('0');
@@ -38,17 +47,6 @@ int print_int(va_list args)
 		digits[i++] = n % 10;
 		n /= 10;
 	}
-
-	if (n == INT_MIN)
-	{
-		char int_min_str[] = "-2147483648";
-		for (j = 0; int_min_str[j] != '\0'; j++)
-        	{
-			_putchar(int_min_str[j]);
-		}
-		return 11;
-	}
-
 	for (j = i - 1; j >= 0; j--)
 	{
 		_putchar(digits[j] + '0');

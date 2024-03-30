@@ -22,7 +22,7 @@ int print_bin(unsigned int num, int print)
 		return (print);
 	}
 
-	for(; num > 0; i++)
+	for (; num > 0; i++)
 	{
 		bin[i] = num % 2;
 		num /= 2;

@@ -20,35 +20,32 @@ int _printf(const char *format, ...)
 	int i = 0, j = 0, len = 0;
 
 	va_start(ap, format);
-
+	if (format[i] == '%' && format[i + 1] == '\0')
+	{
+		_putchar('%');
+		len++;
+	}
 	while (format[i] != '\0')
 	{
-		if (format[i] == '%' && format[i + 1] == '\0')
+		if (format[i] == '%' && format[i + 1] != '\0')
 		{
-			_putchar('%');
-			len++;
+			j = 0;
+			while (types[j].type)
+			{
+				if (format[i + 1] == types[j].type[1])
+				{
+					len = len + types[j].f(ap);
+					break;
+				}
+				j++;
+			}
+			if (types[j].type == NULL && format[i + 1] != '\0')
+				len += print_unknown(format, i);
+			i++;
 		} else
 		{
-			if (format[i] == '%' && format[i + 1] != '\0')
-			{
-				j = 0;
-				while (types[j].type)
-				{
-					if (format[i + 1] == types[j].type[1])
-					{
-						len = len + types[j].f(ap);
-						break;
-					}
-					j++;
-				}
-				if (types[j].type == NULL && format[i + 1] != '\0')
-					len += print_unknown(format, i);
-				i++;
-			} else
-			{
-				_putchar(format[i]);
-				len++;
-			}
+			_putchar(format[i]);
+			len++;
 		}
 		i++;
 	}

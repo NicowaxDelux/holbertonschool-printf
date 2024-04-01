@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+<<<<<<< HEAD
 typedef struct {
     const char *type;
     int (*f)(va_list);
@@ -16,5 +17,9 @@ int print_string(va_list args);
 int _printf(const char *format, ...);
 int print_int(va_list args);
 
+=======
+int _putchar(char c);
+int _printf(const char *format, ...);
+>>>>>>> main
 
 #endif

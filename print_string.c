@@ -32,3 +32,35 @@ int print_string(va_list args)
 	}
 	return (cant);
 }
+
+int (va_list args, buffer_t *output,
+		unsigned char flags, int wid, int prec, unsigned char len)
+{
+	char *str, *null = "(null)";
+	int size;
+	unsigned int ret = 0;
+
+	(void)flags;
+	(void)len;
+
+	str = va_arg(args, char *);
+	if (str == NULL)
+		return (_memcpy(output, null, 6));
+
+	for (size = 0; *(str + size);)
+		size++;
+
+	ret += print_string_width(output, flags, wid, prec, size);
+
+	prec = (prec == -1) ? size : prec;
+	while (*str != '\0' && prec > 0)
+	{
+		ret += _memcpy(output, str, 1);
+		prec--;
+		str++;
+	}
+
+	ret += print_neg_width(output, ret, flags, wid);
+
+	return (ret);
+}

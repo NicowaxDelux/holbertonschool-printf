@@ -27,18 +27,6 @@ In the Example print the value of text with %s give the format of text.
 - prints decimal.
 .IP %i
 - prints integer number.
-.IP %b
-- prints binary representation.
-.IP %p
-- prints pointer.
-.IP %o
-- prints octal representation.
-.IP %r
-- prints string in reverse.
-.IP %u
-- prints unsigned integer.
-.IP %x
-- prints hexadecimal representation.
 
 .SH SEE ALSO
 .I printf (3)
